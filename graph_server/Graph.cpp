@@ -19,3 +19,9 @@ void	Graph::addPoint(const Vector2 &point)
 
 	_points.push_back(point);
 }
+
+
+const Vector2	Graph::getSize() const
+{
+	return _size;
+}

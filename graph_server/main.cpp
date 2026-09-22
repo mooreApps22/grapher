@@ -7,19 +7,31 @@ int	main() {
 		<< std::endl
 		<< std::endl;
 
-	float	x_input;
-	float	y_input;
+	Vector2	size_input;
 
 	std::cout
 		<< "Enter X: ";
 
-	std::cin >> x_input;
+	std::cin >> size_input.x;
 
 	std::cout << std::endl;
 
 	std::cout
 		<< "Enter Y: ";
 
-	std::cin >> y_input;
+	std::cin >> size_input.y;
+
+
+
+	Graph	graphA(size_input);
+
+	std::cout
+		<< "This is the size of Graph A: "
+		<< graphA.getSize().y
+		<< " & "
+		<< graphA.getSize().x
+		<< std::endl;
+
+	
 	return 0;
 }

@@ -20,4 +20,6 @@ class	Graph {
 
 		void	print() const;
 		bool	writePNG(const	std::string &filename) const;
+
+		const Vector2	getSize() const;
 };
