@@ -3,8 +3,9 @@
 
 int	main() {
 	std::cout
-		<< "Hello, World!"
+		<< "Welcome to Early Graph Tests!"
 		<< std::endl;
+
 
 	return 0;
 }

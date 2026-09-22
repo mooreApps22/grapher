@@ -1,5 +1,6 @@
 #include "Vector2.hpp"
 #include <vector>
+#include <string>
 
 class	Graph {
 	private:
@@ -9,7 +10,7 @@ class	Graph {
 		void	_handleNewPoint(const Vector2 &point);
 	
 	public:
-		Graph();
+		Graph(Vector2 size);
 		~Graph();
 
 		void	addPoint(const	Vector2 &point);
