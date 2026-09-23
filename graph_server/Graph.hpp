@@ -1,6 +1,8 @@
 #include "Vector2.hpp"
 #include <vector>
 #include <string>
+#include <sstream>
+#include <iostream>
 
 class	Graph {
 	private:
@@ -22,4 +24,5 @@ class	Graph {
 		bool	writePNG(const	std::string &filename) const;
 
 		const Vector2	getSize() const;
+		const Vector2	getPoint(int index) const;
 };
