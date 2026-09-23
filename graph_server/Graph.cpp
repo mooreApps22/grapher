@@ -26,6 +26,22 @@ const Vector2	Graph::getSize() const
 	return _size;
 }
 
+bool	Graph::_containsPoint(int y, int x) const
+{
+	for (std::vector<Vector2>::const_iterator it = _points.begin();
+		it != _points.end();
+		++it)
+	{
+		int pointY = static_cast<int>(it->y + 0.5f);
+		int pointX = static_cast<int>(it->x + 0.5f);
+
+		if (pointY == y && pointX == x)
+			return true;
+	}
+	
+	return false;
+}
+
 void	Graph::print() const
 {
 	std::ostringstream	graphStream;
@@ -39,7 +55,10 @@ void	Graph::print() const
 
 		for (int x = 0; x <= width; ++x)
 		{
-			graphStream << ". ";
+			if (_containsPoint(y, x))
+				graphStream << "X ";
+			else
+				graphStream << ". ";
 		}
 
 		graphStream << '\n';

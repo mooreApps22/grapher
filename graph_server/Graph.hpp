@@ -10,6 +10,7 @@ class	Graph {
 		std::vector<Vector2>	_points;
 
 		void	_handleNewPoint(const Vector2 &point);
+		bool	_containsPoint(int y, int x) const;
 	
 	public:
 		Graph(Vector2 size);

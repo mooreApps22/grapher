@@ -11,7 +11,7 @@ void	storeFloat(float &value)
 	std::cin >> value;
 }
 
-void	promptStoreVector2(Vector2 inputPoint)
+void	promptStoreVector2(Vector2 &inputPoint)
 {
 	promptInput("Enter y value for Point #1: ");
 	storeFloat(inputPoint.y);
