@@ -3,6 +3,7 @@
 #include <string>
 #include <sstream>
 #include <iostream>
+#include <iomanip>
 
 class	Graph {
 	private:
@@ -10,6 +11,7 @@ class	Graph {
 		std::vector<Vector2>	_points;
 
 		void	_handleNewPoint(const Vector2 &point);
+		int		_digitCount(int number) const;
 		bool	_containsPoint(int y, int x) const;
 	
 	public:

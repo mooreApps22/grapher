@@ -42,46 +42,54 @@ bool	Graph::_containsPoint(int y, int x) const
 	return false;
 }
 
+int		Graph::_digitCount(int number) const
+{
+	int	digits = 1;
+
+	while (number >= 10)
+	{
+		number /= 10;
+		++digits;
+	}
+	return digits;
+}
+
 void	Graph::print() const
 {
 	std::ostringstream	graphStream;
 
 	int	height = static_cast<int>(_size.y + 0.5f);
 	int	width = static_cast<int>(_size.x + 0.5f);
+	int yLabelWidth = _digitCount(height);
+	int xCellWidth = _digitCount(width) + 1;
 	
 	for (int y = height; y >= 0; --y)
 	{
-		graphStream << ">&" << y << ' ';
-
-		if (height >= 10 && y < 10)
-			graphStream << ' ';
-
+		graphStream
+			<< ">&"
+			<< std::setw(yLabelWidth)
+			<< y 
+			<< ' ';
 
 		for (int x = 0; x <= width; ++x)
 		{
 			if (_containsPoint(y, x))
-				graphStream << "X ";
+				graphStream << std::setw(xCellWidth) << "X";
 			else
-				graphStream << ". ";
-
-			if (width >= 10)
-				graphStream << ' ';
+				graphStream << std::setw(xCellWidth) << ".";
 		}
 
 		graphStream << '\n';
 	}
 
-	graphStream << ">&  ";
-	if (height >= 10)
-		graphStream << ' ';
+	graphStream
+		<< ">&"
+		<< std::setw(yLabelWidth + 1)
+		<< ' ';
 
 	for (int x = 0; x <= width; ++x)
-	{
-		graphStream << x;
-		if (width >= 10 && x < 10)
-			graphStream << " ";
-		graphStream << " ";
-	}
+		graphStream << std::setw(xCellWidth) << x;
+
 	graphStream << '\n';
 
 	std::cout << graphStream.str();
