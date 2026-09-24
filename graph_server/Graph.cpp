@@ -51,7 +51,11 @@ void	Graph::print() const
 	
 	for (int y = height; y >= 0; --y)
 	{
-		graphStream << ">&" << y;
+		graphStream << ">&" << y << ' ';
+
+		if (height >= 10 && y < 10)
+			graphStream << ' ';
+
 
 		for (int x = 0; x <= width; ++x)
 		{
@@ -59,15 +63,25 @@ void	Graph::print() const
 				graphStream << "X ";
 			else
 				graphStream << ". ";
+
+			if (width >= 10)
+				graphStream << ' ';
 		}
 
 		graphStream << '\n';
 	}
 
-	graphStream << ">& ";
+	graphStream << ">&  ";
+	if (height >= 10)
+		graphStream << ' ';
 
 	for (int x = 0; x <= width; ++x)
-		graphStream << x << ' ';
+	{
+		graphStream << x;
+		if (width >= 10 && x < 10)
+			graphStream << " ";
+		graphStream << " ";
+	}
 	graphStream << '\n';
 
 	std::cout << graphStream.str();
